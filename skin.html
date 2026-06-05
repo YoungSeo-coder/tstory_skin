@@ -24,9 +24,17 @@
       <span class="brand-name">[##_title_##]</span>
     </a>
     <div class="header-right">
-      <form class="search-form" action="/search" method="get" role="search">
-        <input type="text" name="q" placeholder="탐색..." value="[##_search_text_##]" aria-label="블로그 검색">
-        <button type="submit" aria-label="검색">
+      <s_search>
+      <div class="search-form" role="search">
+        <input
+          type="text"
+          name="[##_search_name_##]"
+          value="[##_search_text_##]"
+          placeholder="탐색..."
+          aria-label="블로그 검색"
+          onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }"
+        >
+        <button type="button" aria-label="검색" onclick="[##_search_onclick_submit_##]">
           <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
                fill="none" stroke="currentColor" stroke-width="2.5"
                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -34,7 +42,9 @@
             <line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
         </button>
-      </form>
+      </div>
+      </s_search>
+    
       <button class="menu-toggle" id="menuToggle"
               aria-label="사이드바 열기" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -99,7 +109,7 @@
           <h2 class="mc-title">
             <a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a>
           </h2>
-          <p class="mc-desc">[##_article_rep_desc_##]</p>
+          <p class="mc-desc">[##_article_rep_summary_##]</p>
           <div class="mc-footer">
             <a class="mc-enter" href="[##_article_rep_link_##]">
               <span class="px">기록 열기 →</span>
@@ -164,7 +174,9 @@
       <!-- 댓글 -->
       <section class="comments" id="comments">
         <h3 class="comments-title px">✦ 교신 기록</h3>
-        [##_comment_group_##]
+        <s_rp>
+          [##_comment_group_##]
+        </s_rp>
       </section>
 
     </article>
@@ -212,43 +224,32 @@
       </div>
     </div>
     <div class="sb-content">
-      <s_sidebar>
-        <s_sidebar_element>
-          <!-- 카테고리 -->
-          <div class="widget widget-category">
-            <h4>카테고리</h4>
-            [##_category_list_##]
-          </div>
-        </s_sidebar_element>
+      <div class="widget widget-category">
+        <h4>카테고리</h4>
+        [##_category_list_##]
+      </div>
     
-        <s_sidebar_element>
-          <!-- 최근 글 -->
-          <div class="widget widget-recent-post">
-            <h4>최근 글</h4>
-            <ul>
-              <s_rctps_rep>
-                <li>
-                  <a href="[##_rctps_rep_link_##]">[##_rctps_rep_title_##]</a>
-                </li>
-              </s_rctps_rep>
-            </ul>
-          </div>
-        </s_sidebar_element>
+      <div class="widget widget-recent-post">
+        <h4>최근 글</h4>
+        <ul>
+          <s_rctps_rep>
+            <li>
+              <a href="[##_rctps_rep_link_##]">[##_rctps_rep_title_##]</a>
+            </li>
+          </s_rctps_rep>
+        </ul>
+      </div>
     
-        <s_sidebar_element>
-          <!-- 최근 댓글 -->
-          <div class="widget widget-recent-comment">
-            <h4>최근 댓글</h4>
-            <ul>
-              <s_rctrp_rep>
-                <li>
-                  <a href="[##_rctrp_rep_link_##]">[##_rctrp_rep_desc_##]</a>
-                </li>
-              </s_rctrp_rep>
-            </ul>
-          </div>
-        </s_sidebar_element>
-      </s_sidebar>
+      <div class="widget widget-recent-comment">
+        <h4>최근 댓글</h4>
+        <ul>
+          <s_rctrp_rep>
+            <li>
+              <a href="[##_rctrp_rep_link_##]">[##_rctrp_rep_desc_##]</a>
+            </li>
+          </s_rctrp_rep>
+        </ul>
+      </div>
     </div>
     <button class="sb-close" id="sidebarClose" aria-label="사이드바 닫기">✕</button>
   </aside>
