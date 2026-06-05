@@ -714,6 +714,26 @@ button { cursor: pointer; }
   box-shadow: var(--glow-s);
 }
 
+html,
+body {
+  cursor: url("./images/space-cursor.cur"), auto;
+}
+
+a,
+button,
+.menu-toggle,
+.sb-pick,
+.sb-tone,
+.astronaut-option,
+.skin-tone-option {
+  cursor: url("./images/space-cursor.cur"), pointer;
+}
+
+input,
+textarea {
+  cursor: text;
+}
+
 /* ===== Sidebar ===== */
 .sidebar {
   width: var(--sb-w);
