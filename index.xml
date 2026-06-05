@@ -3,16 +3,17 @@
   <information>
     <title>space-log</title>
     <description>우주 탐사 일지 컨셉의 다크 픽셀아트 블로그 스킨</description>
-    <version>1.0</version>
-    <author></author>
+    <version>1.0.0</version>
+    <author>YoungSeo</author>
     <email></email>
-    <homepage></homepage>
+    <homepage>https://github.com/YoungSeo-coder/tstory_skin</homepage>
   </information>
   <layout>
     <content width="680"/>
     <sidebar width="240"/>
   </layout>
+  <!-- 미리보기 이미지는 직접 추가해야 합니다: images/preview.jpg (자세한 내용은 INSTALL.md 참고) -->
   <preview>
-    <![CDATA[]]>
+    <![CDATA[./images/preview.jpg]]>
   </preview>
 </skin>

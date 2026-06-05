@@ -722,8 +722,6 @@ body {
 a,
 button,
 .menu-toggle,
-.sb-pick,
-.sb-tone,
 .astronaut-option,
 .skin-tone-option {
   cursor: url("./images/space-cursor.cur"), pointer;
@@ -927,4 +925,179 @@ textarea {
 
   /* Keep only the first status item on very small screens */
   .status-hide { display: none; }
+}
+
+/* ============================================================
+   Readability patch — enlarge tiny pixel UI labels
+   Added to keep the pixel concept while making labels readable.
+   ============================================================ */
+
+/* Top status bar */
+:root {
+  --stat-h: 32px;
+}
+
+.status-bar .px {
+  font-size: .56rem;
+  line-height: 1.6;
+  letter-spacing: .04em;
+}
+
+.status-signal {
+  color: var(--green) !important;
+  text-shadow: 0 0 8px rgba(74, 222, 128, .45);
+}
+
+.status-sep {
+  font-size: .8rem;
+}
+
+/* List page section heading: 탐사 기록 */
+.section-label {
+  font-size: .86rem;
+  line-height: 1.7;
+  letter-spacing: .04em;
+}
+
+/* Post list card small labels */
+.mc-log-label {
+  font-size: .56rem;
+  line-height: 1.6;
+  letter-spacing: .04em;
+}
+
+.mc-enter .px {
+  font-size: .56rem;
+  line-height: 1.6;
+  letter-spacing: .03em;
+}
+
+/* Article header labels */
+.post-cat .px {
+  font-size: .56rem;
+  line-height: 1.6;
+  letter-spacing: .03em;
+}
+
+.post-badge {
+  font-size: .72rem;
+  line-height: 1.5;
+  padding: .26rem .55rem;
+  letter-spacing: .03em;
+}
+
+.post-meta {
+  font-size: .95rem;
+}
+
+.post-collected {
+  font-size: .58rem;
+  line-height: 1.6;
+  letter-spacing: .04em;
+  text-shadow: 0 0 7px rgba(240, 192, 64, .35);
+}
+
+/* Code block label */
+.post-content pre::before {
+  font-size: .5rem;
+  line-height: 1.5;
+}
+
+/* Previous / next post area: 다음 탐사지, PREV, NEXT */
+.post-nav-label {
+  font-size: .72rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  letter-spacing: .08em;
+  color: var(--tx-muted);
+  text-shadow: 0 0 7px rgba(96, 165, 250, .25);
+}
+
+.pn-dir {
+  font-size: .58rem;
+  line-height: 1.6;
+  letter-spacing: .04em;
+}
+
+.pn-title {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--tx);
+}
+
+/* Comments: 교신 기록, 교신 보내기 */
+.comments-title {
+  font-size: .92rem;
+  line-height: 1.7;
+  margin-bottom: 1.6rem;
+  letter-spacing: .04em;
+}
+
+.cf-title {
+  font-size: .88rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  letter-spacing: .04em;
+}
+
+.comments input[type="submit"],
+.comments button[type="submit"] {
+  font-size: .58rem;
+  line-height: 1.5;
+  padding: .65rem 1.25rem;
+}
+
+/* Sidebar: 탐사 기지 + widget labels */
+.sb-station {
+  font-size: .88rem;
+  line-height: 1.6;
+  letter-spacing: .04em;
+}
+
+.sb-content .widget-title,
+.sb-content .widget h4,
+.sb-content h4 {
+  font-size: .62rem;
+  line-height: 1.6;
+  letter-spacing: .05em;
+}
+
+/* Mascot picker buttons: slightly easier to click/read */
+.sb-pick {
+  width: 34px;
+  height: 34px;
+  font-size: 1.15rem;
+}
+
+.sb-tone {
+  width: 28px;
+  height: 28px;
+  font-size: .95rem;
+}
+
+/* Footer decorative text */
+.footer-dots {
+  font-size: .5rem;
+}
+
+.footer-copy {
+  font-size: .9rem;
+}
+
+/* Mobile: keep labels readable but not huge */
+@media (max-width: 640px) {
+  .status-bar .px {
+    font-size: .52rem;
+  }
+
+  .section-label,
+  .comments-title,
+  .cf-title,
+  .sb-station {
+    font-size: .78rem;
+  }
+
+  .post-nav-label {
+    font-size: .66rem;
+  }
 }

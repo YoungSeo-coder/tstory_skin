@@ -19,7 +19,7 @@
 <!-- ===== HEADER ===== -->
 <header class="site-header">
   <div class="h-inner">
-    <a class="site-brand" href="/">
+    <a class="site-brand" href="[##_blog_link_##]">
       <span class="brand-star" aria-hidden="true">✦</span>
       <span class="brand-name">[##_title_##]</span>
     </a>
@@ -64,9 +64,16 @@
       <div class="section-rule"></div>
     </div>
 
+    <!-- 상단 광고 영역 -->
+    <div class="ad-area ad-area--list-upper">
+      [##_revenue_list_upper_##]
+    </div>
+    
     <!-- ========================= -->
     <!-- 글 목록 (홈/카테고리/검색) -->
     <!-- ========================= -->
+    <!-- 글 모듈: 목록(s_index)과 본문(s_permalink)을 함께 감싸야 렌더됨 -->
+    <s_article_rep>
     <s_index_article_rep>
     <article class="mission-card">
       <div class="mc-inner">
@@ -83,7 +90,7 @@
         <!-- 썸네일 (있을 때만 렌더) -->
         <s_article_rep_thumbnail>
         <a class="mc-thumb" href="[##_article_rep_link_##]" tabindex="-1" aria-hidden="true">
-          <img src="[##_article_rep_thumbnail_##]" alt="">
+          <img src="[##_article_rep_thumbnail_url_##]" alt="">
         </a>
         </s_article_rep_thumbnail>
 
@@ -103,15 +110,6 @@
       </div>
     </article>
     </s_index_article_rep>
-
-    <!-- 페이지네이션 -->
-    <s_paging_rep>
-    <nav class="pagination" aria-label="페이지 이동">
-      [##_prev_page_##]
-      [##_page_rep_##]
-      [##_next_page_##]
-    </nav>
-    </s_paging_rep>
 
     <!-- ========================= -->
     <!-- 글 본문 (개별 글 페이지)    -->
@@ -137,68 +135,56 @@
       </header>
 
       <div class="post-content">
-        [##_article_rep_content_##]
+        [##_article_rep_desc_##]
       </div>
 
       <!-- 이전/다음 글 -->
-      <!-- ⚠ 치환자 검증 필요: [##_article_prev_link_##], [##_article_next_link_##] -->
-      <!-- 실제 티스토리에서 동작하지 않으면 [##_article_rep_prev_link_##] 로 변경 -->
       <nav class="post-nav" aria-label="이전/다음 글">
         <p class="post-nav-label px" aria-hidden="true">✦ 다음 탐사지 ✦</p>
+      
         <div class="post-nav-grid">
-          <s_article_rep_prev_btn>
+          <s_article_prev>
           <a class="pn-item" href="[##_article_prev_link_##]">
             <span class="pn-dir px">← PREV</span>
             <span class="pn-title">[##_article_prev_title_##]</span>
+            <span class="pn-date">[##_article_prev_date_##]</span>
           </a>
-          </s_article_rep_prev_btn>
-          <s_article_rep_next_btn>
+          </s_article_prev>
+      
+          <s_article_next>
           <a class="pn-item pn-item--next" href="[##_article_next_link_##]">
             <span class="pn-dir px">NEXT →</span>
             <span class="pn-title">[##_article_next_title_##]</span>
+            <span class="pn-date">[##_article_next_date_##]</span>
           </a>
-          </s_article_rep_next_btn>
+          </s_article_next>
         </div>
       </nav>
 
       <!-- 댓글 -->
       <section class="comments" id="comments">
         <h3 class="comments-title px">✦ 교신 기록</h3>
-
-        <s_rp_container>
-        <div class="comment-list">
-          <s_rp_rep>
-          <div class="comment-item" id="[##_rp_id_##]">
-            <div class="comment-header">
-              <strong class="comment-author">[##_rp_name_##]</strong>
-              <time class="comment-date">[##_rp_date_##]</time>
-              [##_rp_del_btn_##]
-            </div>
-            <div class="comment-body">[##_rp_content_##]</div>
-            <s_rp_rep_reply>
-            <div class="comment-reply">[##_rp_input_reply_##]</div>
-            </s_rp_rep_reply>
-          </div>
-          </s_rp_rep>
-        </div>
-        </s_rp_container>
-
-        <div class="comment-form">
-          <h4 class="cf-title px">교신 보내기</h4>
-          <div class="cf-fields">
-            [##_rp_input_name_##]
-            [##_rp_input_pwd_##]
-          </div>
-          [##_rp_input_content_##]
-          <div class="cf-footer">
-            [##_rp_input_secret_##]
-            [##_rp_input_submit_##]
-          </div>
-        </div>
+        [##_comment_group_##]
       </section>
 
     </article>
     </s_permalink_article_rep>
+    </s_article_rep>
+
+    <!-- 페이지네이션 (글 모듈 밖, 목록 페이지에서만 렌더) -->
+    <s_paging>
+      <nav class="pagination" aria-label="페이지 이동">
+        <a [##_prev_page_##] class="page-btn [##_no_more_prev_##]">← PREV</a>
+      
+        <span class="page-numbers">
+          <s_paging_rep>
+          <a [##_paging_rep_link_##] class="page-num">[##_paging_rep_link_num_##]</a>
+          </s_paging_rep>
+        </span>
+      
+        <a [##_next_page_##] class="page-btn [##_no_more_next_##]">NEXT →</a>
+      </nav>
+      </s_paging>
 
   </main><!-- /.main -->
 
@@ -226,9 +212,42 @@
       </div>
     </div>
     <div class="sb-content">
-      <!-- ⚠ 치환자 검증 필요: [##_sidebar_element_##] 가 안 보이면 [##_sidebar_##] 로 변경 -->
       <s_sidebar>
-      [##_sidebar_element_##]
+        <s_sidebar_element>
+          <!-- 카테고리 -->
+          <div class="widget widget-category">
+            <h4>카테고리</h4>
+            [##_category_list_##]
+          </div>
+        </s_sidebar_element>
+    
+        <s_sidebar_element>
+          <!-- 최근 글 -->
+          <div class="widget widget-recent-post">
+            <h4>최근 글</h4>
+            <ul>
+              <s_rctps_rep>
+                <li>
+                  <a href="[##_rctps_rep_link_##]">[##_rctps_rep_title_##]</a>
+                </li>
+              </s_rctps_rep>
+            </ul>
+          </div>
+        </s_sidebar_element>
+    
+        <s_sidebar_element>
+          <!-- 최근 댓글 -->
+          <div class="widget widget-recent-comment">
+            <h4>최근 댓글</h4>
+            <ul>
+              <s_rctrp_rep>
+                <li>
+                  <a href="[##_rctrp_rep_link_##]">[##_rctrp_rep_desc_##]</a>
+                </li>
+              </s_rctrp_rep>
+            </ul>
+          </div>
+        </s_sidebar_element>
       </s_sidebar>
     </div>
     <button class="sb-close" id="sidebarClose" aria-label="사이드바 닫기">✕</button>
