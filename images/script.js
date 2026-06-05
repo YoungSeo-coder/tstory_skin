@@ -75,3 +75,63 @@
     if (e.matches && sidebar.classList.contains('is-open')) close();
   });
 }());
+
+/* ===== Mascot picker (astronaut customization) ===== */
+(function initMascot() {
+  var emoji = document.getElementById('astronautEmoji');
+  if (!emoji) return;
+
+  var BASE = { neutral: '🧑', woman: '👩', man: '👨' };
+  var TONE = {
+    'default':       '',
+    'light':         '\u{1F3FB}',
+    'medium-light':  '\u{1F3FC}',
+    'medium':        '\u{1F3FD}',
+    'medium-dark':   '\u{1F3FE}',
+    'dark':          '\u{1F3FF}'
+  };
+
+  var genderBtns = document.querySelectorAll('.sb-pick[data-gender]');
+  var toneBtns   = document.querySelectorAll('.sb-tone[data-tone]');
+
+  function load(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function save(key, val) { try { localStorage.setItem(key, val); } catch (e) {} }
+
+  var state = {
+    gender: load('spacelog.gender') || 'neutral',
+    tone:   load('spacelog.tone')   || 'default'
+  };
+  if (!BASE[state.gender]) state.gender = 'neutral';
+  if (!(state.tone in TONE)) state.tone = 'default';
+
+  function render() {
+    emoji.textContent = BASE[state.gender] + TONE[state.tone] + '\u200D' + '🚀';
+    genderBtns.forEach(function (b) {
+      var on = b.getAttribute('data-gender') === state.gender;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    toneBtns.forEach(function (b) {
+      var on = b.getAttribute('data-tone') === state.tone;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+
+  genderBtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      state.gender = b.getAttribute('data-gender');
+      save('spacelog.gender', state.gender);
+      render();
+    });
+  });
+  toneBtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      state.tone = b.getAttribute('data-tone');
+      save('spacelog.tone', state.tone);
+      render();
+    });
+  });
+
+  render();
+}());

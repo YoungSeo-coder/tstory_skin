@@ -203,9 +203,26 @@
 
   <!-- ===== SIDEBAR ===== -->
   <aside class="sidebar" id="sidebar" aria-label="사이드바">
-    <div class="sb-mascot" aria-hidden="true">
-      <span class="sb-astronaut">🧑‍🚀</span>
-      <p class="sb-station px">탐사 기지</p>
+    <div class="sb-mascot">
+      <span class="sb-astronaut" id="astronautEmoji" aria-hidden="true">🧑‍🚀</span>
+      <p class="sb-station px" aria-hidden="true">탐사 기지</p>
+
+      <!-- 마스코트 커스터마이즈: 선택값은 localStorage 에 저장 -->
+      <div class="sb-picker">
+        <div class="sb-pick-row" role="group" aria-label="우주인 종류 선택">
+          <button type="button" class="sb-pick" data-gender="neutral" aria-label="중립 우주인">🧑‍🚀</button>
+          <button type="button" class="sb-pick" data-gender="woman" aria-label="여성 우주인">👩‍🚀</button>
+          <button type="button" class="sb-pick" data-gender="man" aria-label="남성 우주인">👨‍🚀</button>
+        </div>
+        <div class="sb-pick-row" role="group" aria-label="피부톤 선택">
+          <button type="button" class="sb-tone" data-tone="default" aria-label="기본 피부톤">🧑</button>
+          <button type="button" class="sb-tone" data-tone="light" aria-label="밝은 피부톤">🧑🏻</button>
+          <button type="button" class="sb-tone" data-tone="medium-light" aria-label="약간 밝은 피부톤">🧑🏼</button>
+          <button type="button" class="sb-tone" data-tone="medium" aria-label="중간 피부톤">🧑🏽</button>
+          <button type="button" class="sb-tone" data-tone="medium-dark" aria-label="약간 어두운 피부톤">🧑🏾</button>
+          <button type="button" class="sb-tone" data-tone="dark" aria-label="어두운 피부톤">🧑🏿</button>
+        </div>
+      </div>
     </div>
     <div class="sb-content">
       <!-- ⚠ 치환자 검증 필요: [##_sidebar_element_##] 가 안 보이면 [##_sidebar_##] 로 변경 -->

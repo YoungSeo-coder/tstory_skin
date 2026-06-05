@@ -276,7 +276,7 @@ button { cursor: pointer; }
 .main:has(.mission-card) .section-header { display: flex; }
 
 .section-label {
-  font-size: .62rem;
+  font-size: .75rem;
   color: var(--cyan);
   white-space: nowrap;
   text-shadow: 0 0 8px rgba(34,211,238,.5);
@@ -426,7 +426,7 @@ button { cursor: pointer; }
 .post-cat:hover .px { color: var(--blue); }
 
 .post-badge {
-  font-size: .38rem;
+  font-size: .62rem;
   color: var(--purple);
   background: rgba(168,85,247,.1);
   border: 1px solid rgba(168,85,247,.3);
@@ -634,7 +634,7 @@ button { cursor: pointer; }
 .comments { padding: 2rem 0 .5rem; }
 
 .comments-title {
-  font-size: .64rem;
+  font-size: .75rem;
   color: var(--blue);
   margin-bottom: 1.5rem;
 }
@@ -660,7 +660,7 @@ button { cursor: pointer; }
 }
 
 /* Form */
-.cf-title  { font-size: .45rem; color: var(--purple); margin-bottom: .85rem; }
+.cf-title  { font-size: .75rem; color: var(--purple); margin-bottom: .85rem; }
 .cf-fields {
   display: flex;
   gap: .5rem;
@@ -746,7 +746,43 @@ button { cursor: pointer; }
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-7px); }
 }
-.sb-station { font-size: .5rem; color: var(--cyan); letter-spacing: .1em; }
+.sb-station { font-size: .75rem; color: var(--cyan); letter-spacing: .1em; }
+
+/* Mascot picker */
+.sb-picker {
+  margin-top: .9rem;
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+}
+.sb-pick-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .35rem;
+}
+.sb-pick,
+.sb-tone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  background: rgba(15, 26, 46, .6);
+  border: 1px solid var(--bd-sub);
+  border-radius: 6px;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+.sb-pick { width: 30px; height: 30px; font-size: 1rem; }
+.sb-tone { width: 24px; height: 24px; font-size: .85rem; }
+.sb-pick:hover,
+.sb-tone:hover { border-color: var(--bd-glow); }
+.sb-pick.is-active,
+.sb-tone.is-active {
+  border-color: var(--cyan);
+  background: rgba(34, 211, 238, .1);
+  box-shadow: var(--glow-s);
+}
 
 .sb-close { display: none; }
 
