@@ -1,0 +1,17 @@
+---
+description: Tistory skin development rules
+alwaysApply: true
+---
+
+# Tistory Skin Coding Rules
+
+- This project is a Tistory skin project.
+- Main files are `skin.html`, `style.css`, `index.xml`, and files under `images/`.
+- Do not remove Tistory replacement tags unless explicitly requested.
+- Prefer simple HTML/CSS/Vanilla JS.
+- Do not introduce frameworks such as React, Vue, Tailwind, Bootstrap, or jQuery unless requested.
+- Make surgical changes only.
+- Avoid unnecessary refactoring.
+- Keep layout readable and responsive.
+- When modifying multiple files, explain which files changed and why.
+- Prioritize maintainability over clever code.

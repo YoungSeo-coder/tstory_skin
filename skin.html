@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[##_page_title_##]</title>
+  <meta name="description" content="[##_desc_##]">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <link rel="shortcut icon" href="[##_favicon_##]" type="image/x-icon">
+</head>
+<body>
+
+<!-- JS로 별을 채워넣는 배경 레이어 -->
+<div class="starfield" id="starfield" aria-hidden="true"></div>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="h-inner">
+    <a class="site-brand" href="/">
+      <span class="brand-star" aria-hidden="true">✦</span>
+      <span class="brand-name">[##_title_##]</span>
+    </a>
+    <div class="header-right">
+      <form class="search-form" action="/search" method="get" role="search">
+        <input type="text" name="q" placeholder="탐색..." value="[##_search_text_##]" aria-label="블로그 검색">
+        <button type="submit" aria-label="검색">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+      </form>
+      <button class="menu-toggle" id="menuToggle"
+              aria-label="사이드바 열기" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <!-- 장식용 상태 표시줄 -->
+  <div class="status-bar" aria-hidden="true">
+    <div class="h-inner">
+      <span class="px status-signal">● SIGNAL OK</span>
+      <span class="status-sep">·</span>
+      <span class="px status-hide">탐사 진행 중</span>
+      <span class="status-sep status-hide">·</span>
+      <span class="px status-hide">행성 접근 중</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===== LAYOUT ===== -->
+<div class="layout">
+
+  <main class="main" id="main">
+
+    <!-- 글 목록 페이지 전용 섹션 레이블 (CSS :has 로 제어) -->
+    <div class="section-header">
+      <span class="px section-label">◈ 탐사 기록</span>
+      <div class="section-rule"></div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- 글 목록 (홈/카테고리/검색) -->
+    <!-- ========================= -->
+    <s_index_article_rep>
+    <article class="mission-card">
+      <div class="mc-inner">
+
+        <!-- 카드 헤더 행 -->
+        <div class="mc-top">
+          <span class="px mc-log-label">MISSION LOG</span>
+          <s_article_rep_category>
+          <span class="mc-tag">⬡ [##_article_rep_category_##]</span>
+          </s_article_rep_category>
+          <time class="mc-date">[##_article_rep_date_##]</time>
+        </div>
+
+        <!-- 썸네일 (있을 때만 렌더) -->
+        <s_article_rep_thumbnail>
+        <a class="mc-thumb" href="[##_article_rep_link_##]" tabindex="-1" aria-hidden="true">
+          <img src="[##_article_rep_thumbnail_##]" alt="">
+        </a>
+        </s_article_rep_thumbnail>
+
+        <!-- 본문 -->
+        <div class="mc-body">
+          <h2 class="mc-title">
+            <a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a>
+          </h2>
+          <p class="mc-desc">[##_article_rep_desc_##]</p>
+          <div class="mc-footer">
+            <a class="mc-enter" href="[##_article_rep_link_##]">
+              <span class="px">기록 열기 →</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </article>
+    </s_index_article_rep>
+
+    <!-- 페이지네이션 -->
+    <s_paging_rep>
+    <nav class="pagination" aria-label="페이지 이동">
+      [##_prev_page_##]
+      [##_page_rep_##]
+      [##_next_page_##]
+    </nav>
+    </s_paging_rep>
+
+    <!-- ========================= -->
+    <!-- 글 본문 (개별 글 페이지)    -->
+    <!-- ========================= -->
+    <s_article_rep>
+    <article class="post-full">
+
+      <header class="post-header">
+        <div class="post-header-labels">
+          <s_article_rep_category>
+          <a class="post-cat" href="[##_article_rep_category_link_##]">
+            <span class="px">⬡ [##_article_rep_category_##]</span>
+          </a>
+          </s_article_rep_category>
+          <span class="post-badge px">탐사 기록</span>
+        </div>
+        <h1 class="post-title">[##_article_rep_title_##]</h1>
+        <div class="post-meta">
+          <time>[##_article_rep_date_##]</time>
+          <span class="meta-star" aria-hidden="true">✦</span>
+          <span class="px post-collected">수집 완료</span>
+        </div>
+      </header>
+
+      <div class="post-content">
+        [##_article_rep_content_##]
+      </div>
+
+      <!-- 이전/다음 글 -->
+      <!-- ⚠ 치환자 검증 필요: [##_article_prev_link_##], [##_article_next_link_##] -->
+      <!-- 실제 티스토리에서 동작하지 않으면 [##_article_rep_prev_link_##] 로 변경 -->
+      <nav class="post-nav" aria-label="이전/다음 글">
+        <p class="post-nav-label px" aria-hidden="true">✦ 다음 탐사지 ✦</p>
+        <div class="post-nav-grid">
+          <s_article_rep_prev_btn>
+          <a class="pn-item" href="[##_article_prev_link_##]">
+            <span class="pn-dir px">← PREV</span>
+            <span class="pn-title">[##_article_prev_title_##]</span>
+          </a>
+          </s_article_rep_prev_btn>
+          <s_article_rep_next_btn>
+          <a class="pn-item pn-item--next" href="[##_article_next_link_##]">
+            <span class="pn-dir px">NEXT →</span>
+            <span class="pn-title">[##_article_next_title_##]</span>
+          </a>
+          </s_article_rep_next_btn>
+        </div>
+      </nav>
+
+      <!-- 댓글 -->
+      <section class="comments" id="comments">
+        <h3 class="comments-title px">✦ 교신 기록</h3>
+
+        <s_rp_container>
+        <div class="comment-list">
+          <s_rp_rep>
+          <div class="comment-item" id="[##_rp_id_##]">
+            <div class="comment-header">
+              <strong class="comment-author">[##_rp_name_##]</strong>
+              <time class="comment-date">[##_rp_date_##]</time>
+              [##_rp_del_btn_##]
+            </div>
+            <div class="comment-body">[##_rp_content_##]</div>
+            <s_rp_rep_reply>
+            <div class="comment-reply">[##_rp_input_reply_##]</div>
+            </s_rp_rep_reply>
+          </div>
+          </s_rp_rep>
+        </div>
+        </s_rp_container>
+
+        <div class="comment-form">
+          <h4 class="cf-title px">교신 보내기</h4>
+          <div class="cf-fields">
+            [##_rp_input_name_##]
+            [##_rp_input_pwd_##]
+          </div>
+          [##_rp_input_content_##]
+          <div class="cf-footer">
+            [##_rp_input_secret_##]
+            [##_rp_input_submit_##]
+          </div>
+        </div>
+      </section>
+
+    </article>
+    </s_article_rep>
+
+  </main><!-- /.main -->
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar" aria-label="사이드바">
+    <div class="sb-mascot" aria-hidden="true">
+      <span class="sb-astronaut">🧑‍🚀</span>
+      <p class="sb-station px">탐사 기지</p>
+    </div>
+    <div class="sb-content">
+      <!-- ⚠ 치환자 검증 필요: [##_sidebar_element_##] 가 안 보이면 [##_sidebar_##] 로 변경 -->
+      <s_sidebar>
+      [##_sidebar_element_##]
+      </s_sidebar>
+    </div>
+    <button class="sb-close" id="sidebarClose" aria-label="사이드바 닫기">✕</button>
+  </aside>
+
+</div><!-- /.layout -->
+
+<!-- 모바일 오버레이 -->
+<div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="h-inner">
+    <p class="footer-dots px" aria-hidden="true">✦ · · ✦ · · ✦</p>
+    <p class="footer-copy">
+      [##_title_##] &middot;
+      Powered by <a href="https://www.tistory.com" target="_blank" rel="noopener noreferrer">Tistory</a>
+    </p>
+  </div>
+</footer>
+
+<script src="./images/script.js"></script>
+</body>
+</html>

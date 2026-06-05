@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin>
+  <information>
+    <title>space-log</title>
+    <description>우주 탐사 일지 컨셉의 다크 픽셀아트 블로그 스킨</description>
+    <version>1.0</version>
+    <author></author>
+    <email></email>
+    <homepage></homepage>
+  </information>
+  <layout>
+    <content width="680"/>
+    <sidebar width="240"/>
+  </layout>
+  <preview>
+    <![CDATA[]]>
+  </preview>
+</skin>
